@@ -17,50 +17,17 @@ public class EnemyShooting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+
 		Rigidbody2D shooting;
-		
-		
-		bool downShoot = Input.GetKey (KeyCode.A);
-		bool upShoot = Input.GetKey (KeyCode.S);
-		bool leftShoot = Input.GetKey (KeyCode.D);
-		bool rightShoot = Input.GetKey (KeyCode.W);
-				
-		
-		if ((downShoot) && Time.time > nextShot) 
-		{
-			nextShot = Time.time + fireRate;
-			shooting = Instantiate (projectile, transform.position,Quaternion.Euler (0,0,90.0f)) as Rigidbody2D;
-			shooting.velocity = GetComponent<Rigidbody2D>().velocity/3;
-			shooting.AddForce (transform.up * bulletSpeed);
-		}
 
-
-		
-		if ((upShoot) && Time.time > nextShot)
+		if (Time.time > nextShot)
 		{
-			nextShot = Time.time + fireRate;
-			shooting = Instantiate (projectile, transform.position,Quaternion.Euler (0,0,90.0f)) as Rigidbody2D;
-			shooting.velocity = GetComponent<Rigidbody2D>().velocity/3;
-			shooting.AddForce (transform.up * bulletSpeed);
-			
+		nextShot = Time.time + fireRate;
+		shooting = Instantiate (projectile, transform.position,Quaternion.Euler (0,0,90.0f)) as Rigidbody2D;
+		shooting.velocity = GetComponent<Rigidbody2D>().velocity/3;
+		shooting.AddForce (transform.up * bulletSpeed);
 		}
-		
-		if ((leftShoot) && Time.time > nextShot)
-		{
-			nextShot = Time.time + fireRate;
-			shooting = Instantiate (projectile, transform.position,Quaternion.Euler (0,0,90.0f)) as Rigidbody2D;
-			shooting.velocity = GetComponent<Rigidbody2D>().velocity/3;
-			shooting.AddForce (transform.up * bulletSpeed);
-		}
-		
-		if ((rightShoot) && Time.time > nextShot)
-		{
-			nextShot = Time.time + fireRate;
-			shooting = Instantiate (projectile, transform.position,Quaternion.Euler (0,0,90.0f)) as Rigidbody2D;
-			shooting.velocity = GetComponent<Rigidbody2D>().velocity/3;
-			shooting.AddForce (transform.up * bulletSpeed);
-		}
-		
-		
+	
 	}
+	
 }
